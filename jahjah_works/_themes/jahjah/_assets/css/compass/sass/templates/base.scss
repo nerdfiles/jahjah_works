@@ -1,0 +1,112 @@
+// @fileOverview
+// Django Templates.
+
+@import "compass/css3";
+
+/**
+ * Base Template
+ *
+ * @tmpl        base.tmpl  
+ * @notes       Consider "_base.scss"
+ */
+body.base-template {
+
+  .site-toolbar {
+    display: none;
+  }
+
+  .site-banner { 
+
+    @extend .row;
+
+    a {
+      display: block;
+      height: 179px;
+      @extend .columns;
+      @extend .small-6;
+      @extend .medium-6;
+      @extend .large-6;
+      @extend .small-centered;
+      @extend .medium-centered;
+      @extend .large-centered;
+      text: {
+        indent: -9999px;
+      }
+      background: url('../../../img-ui/lauren-mcmanus-logo.png') 0 0 no-repeat;
+    }//.site-banner
+
+    h1 {
+      @extend .large-3;
+      @extend .columns;
+    }
+
+    p {
+      @extend .large-3;
+      @extend .columns;
+    }
+
+    h1 { 
+      font: {
+        size: 40px;
+      }
+    }
+  }//.site-banner
+
+  .site-nav {
+    @extend .row;
+    ul {
+      list-style: none;
+    }
+    padding: 40px 0 0;
+    div {
+      @extend .large-12;
+      @extend .large-centered;
+      @extend .columns;
+      ul {
+        @include cf;
+        @extend .row;
+        li {
+          
+          @extend .large-2;
+          @extend .columns;
+
+          a {
+            display: block;
+            text-align: center;
+            font-variant: small-caps;
+            text-transform: uppercase;
+            font: {
+              family: "Antic";
+            }
+
+          }//a
+        }//li
+        .sibling { 
+        }//sibling
+        .selected { 
+        
+        }//selected
+      }
+    }
+  }
+
+  .site-page { 
+    @extend .row;
+
+    //border-top: 1px turquoise solid;
+    padding: 50px 0 0;
+
+    article.inner {
+      @extend .large-12;
+      @extend .columns;
+    }//article.inner
+  }//.site-page
+
+  .site-footer { 
+    @extend .row;
+    section {
+      @extend .large-4;
+      @extend .columns;
+    }
+  }//.site-footer
+}//body.base-template
