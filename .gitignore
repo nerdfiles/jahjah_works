@@ -24,6 +24,6 @@ node_modules
 wsgi_local.py
 env
 tags
-vendor
+#vendor
 
 *.old
