@@ -57,7 +57,7 @@ USE_TZ = True
 
 INTERNAL_IPS = ('127.0.0.1',)
 
-THEME = 'laurenmcmanus'
+THEME = 'jahjah'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets')
 MEDIA_URL = '/_assets/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
@@ -117,18 +117,18 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'sekizai.context_processors.sekizai',
     'cms.context_processors.cms_settings',
-    'laurenmcman_us.context_processors.date_formats',
-    'laurenmcman_us.context_processors.site_info',
-    #'laurenmcman_us.context_processors.generic_links',
+    'jahjah_works.context_processors.date_formats',
+    'jahjah_works.context_processors.site_info',
+    #'jahjah.context_processors.generic_links',
     'social_auth.context_processors.social_auth_by_name_backends',
     'social_auth.context_processors.social_auth_backends',
     'social_auth.context_processors.social_auth_by_type_backends',
     'social_auth.context_processors.social_auth_login_redirect',
 )
 
-ROOT_URLCONF = 'laurenmcman_us.urls'
+ROOT_URLCONF = 'jahjah_works.urls'
 
-WSGI_APPLICATION = 'laurenmcman_us.wsgi.application'
+WSGI_APPLICATION = 'jahjah_works.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -274,7 +274,7 @@ CMS_TEMPLATES = (
 
 # == SPHINX ======================================= #
 
-THEME = 'laurenmcmanus'
+THEME = 'jahjah'
 THEME_DIR = os.path.join(PROJECT_ROOT, '_themes', THEME)
 SPHINX_ROOT = os.path.realpath(os.path.join(THEME_DIR, '_docs', 'html'))
 SPHINX_SOURCES_ROOT = os.path.realpath(
