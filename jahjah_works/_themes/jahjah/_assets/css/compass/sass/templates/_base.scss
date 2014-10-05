@@ -1,8 +1,8 @@
 // @fileOverview
 // Django Templates.
 
-@import "../_utils";
 @import "compass/css3";
+@import "_utils";
 
 /**
  * Base Template
@@ -11,41 +11,43 @@
  * @notes       Consider "_base.scss"
  */
 body.base-template {
-
-  .site-toolbar {
-    display: none;
+  font: {
+    family: $bodyFontFamily;
   }
-
   .site-banner { 
 
-    @extend .row !optional;
+    @include grid-row();
 
     a {
       display: block;
       height: 179px;
-      @extend .columns !optional;
-      @extend .small-6 !optional;
-      @extend .medium-6 !optional;
-      @extend .large-6 !optional;
-      @extend .small-centered !optional;
-      @extend .medium-centered !optional;
-      @extend .large-centered !optional;
+      @media #{$small} {
+        @include grid-column($columns:6, $center: true);
+      }
+      @media #{$medium} {
+        @include grid-column($columns:6, $center: true);
+      }
+      @media #{$large} {
+        @include grid-column($columns:6, $center: true);
+      }
       text: {
         indent: -9999px;
       }
       background: url('../../../img-ui/jahjah-logo.png') 0 0 no-repeat;
-      background-size: auto 100%;
+      background-size: auto 50%;
       background-position: center;
     }//.site-banner
 
     h1 {
-      @extend .large-3 !optional;
-      @extend .columns !optional;
+      @media #{$large} {
+        @include grid-column($columns:3, $center: true);
+      }
     }
 
     p {
-      @extend .large-3 !optional;
-      @extend .columns !optional;
+      @media #{$large} {
+        @include grid-column($columns:3, $center: true);
+      }
     }
 
     h1 { 
@@ -56,30 +58,30 @@ body.base-template {
   }//.site-banner
 
   .site-nav {
-    @extend .row !optional;
+    @include grid-row();
     ul {
       list-style: none;
     }
     padding: 40px 0 0;
     div {
-      @extend .large-12 !optional;
-      @extend .large-centered !optional;
-      @extend .columns !optional;
+      @media #{$large} {
+        @include grid-column($columns:12, $center: true);
+      }
       ul {
-        @include cf;
-        @extend .row !optional;
+        /*@include cf;*/
+        @include grid-row();
         li {
           
-          @extend .large-2 !optional;
-          @extend .columns !optional;
-
+          @media #{$large} {
+            @include grid-column($columns:2);
+          }
           a {
             display: block;
             text-align: center;
             font-variant: small-caps;
             text-transform: uppercase;
             font: {
-              family: "Antic";
+              family: $bodyFontFamily;
             }
 
           }//a
@@ -94,22 +96,23 @@ body.base-template {
   }
 
   .site-page { 
-    @extend .row !optional;
+    @include grid-row();
 
-    //border-top: 1px turquoise solid;
     padding: 50px 0 0;
 
     article.inner {
-      @extend .large-12 !optional;
-      @extend .columns !optional;
+      @media #{$large} {
+        @include grid-column($columns:12);
+      }
     }//article.inner
   }//.site-page
 
   .site-footer { 
-    @extend .row !optional;
+    @include grid-row();
     section {
-      @extend .large-4 !optional;
-      @extend .columns !optional;
+      @media #{$large} {
+        @include grid-column($columns:4);
+      }
     }
   }//.site-footer
 }//body.base-template
