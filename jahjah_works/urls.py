@@ -34,18 +34,16 @@ urlpatterns = patterns(
 
 )
 
-if settings.LOCAL_DEVELOPMENT:
-    urlpatterns = patterns(
-        '',
-        url(r'^_assets/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    ) + urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-else:
-    urlpatterns = patterns(
-        '',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-    ) + urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = patterns(
+    '',
+    url(r'^_assets/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+) + urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = patterns(
+    '',
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+) + urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
