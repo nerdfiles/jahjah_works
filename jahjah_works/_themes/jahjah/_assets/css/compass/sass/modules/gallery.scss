@@ -9,13 +9,13 @@
 .gallery figcaption {
 }
 .gallery {
-  @extend .row;
+  @extend .row !optional;
   @include cf;
   padding: 0 0 1.5em;
   figure {
     @include inline-block;
-    @extend .large-4;
-    @extend .columns;
+    @extend .large-4 !optional;
+    @extend .columns !optional;
     margin: 0 0 2em;
     img {
       padding-bottom: 30px;
