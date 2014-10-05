@@ -60,6 +60,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 THEME = 'jahjah'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets')
 MEDIA_URL = '/_assets/'
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
