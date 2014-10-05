@@ -24,9 +24,9 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                  'jahjah_works/_themes/laurenmcmanus/_assets/js/global.js'
+                  'jahjah_works/_themes/jahjah/_assets/js/global.js'
                 ],
-                dest: 'jahjah_works/_themes/laurenmcmanus/_assets/js/dist/jahjah_works.js'
+                dest: 'jahjah_works/_themes/jahjah/_assets/js/dist/jahjah_works.js'
             }
         },
 
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: '<%= concat.dist.dest %>',
-                dest: 'jahjah_works/_themes/laurenmcmanus/_assets/js/dist/jahjah_works.min.js'
+                dest: 'jahjah_works/_themes/jahjah/_assets/js/dist/jahjah_works.min.js'
             }
         },
 
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
             },
             lib_test: {
               src: [
-                'jahjah_works/_themes/laurenmcmanus/_assets/js/global.js'
+                'jahjah_works/_themes/jahjah/_assets/js/global.js'
                 //'test/**/*.js'
               ]
             }
@@ -105,7 +105,7 @@ module.exports = function (grunt) {
               options: {
                 async: true,
                 execOptions: {
-                  cwd: './jahjah_works/_themes/laurenmcmanus/_assets/css'
+                  cwd: './jahjah_works/_themes/jahjah/_assets/css'
                 }
               }
             },
@@ -132,12 +132,12 @@ module.exports = function (grunt) {
         },
 
         compass: {
-          srcDir: 'jahjah_works/_themes/laurenmcmanus/_assets/css/compass/sass',
+          srcDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/sass',
           dist: {
             options: {
-              importPath: 'jahjah_works/_themes/laurenmcmanus/_assets/vendor/foundation/scss',
-              sassDir: 'jahjah_works/_themes/laurenmcmanus/_assets/css/compass/sass',
-              cssDir: 'jahjah_works/_themes/laurenmcmanus/_assets/css/compass/stylesheets',
+              importPath: 'jahjah_works/_themes/jahjah/_assets/vendor/foundation/scss',
+              sassDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/sass',
+              cssDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/stylesheets',
               environment: 'production'
             }
           }
