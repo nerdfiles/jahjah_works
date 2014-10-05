@@ -26,3 +26,5 @@ with pyenv across a few Pythons (2.7.7 and 3.4.0).
 
 1. Run analytics on CSS to reduce payload, redundancy (poorly used ``@mixins``),  
    and unused selectors.
+2. http://jahjah.works/static/imagestore/c9c63061-48a4-4a28-9f19-9fcac24599e1.jpg  
+   Fix ``urls.py`` and workflow for generating static resources.
