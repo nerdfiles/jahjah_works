@@ -34,7 +34,8 @@ body.base-template {
         indent: -9999px;
       }
       background: url('../../../img-ui/jahjah-logo.png') 0 0 no-repeat;
-      background-size: contain;
+      background-size: auto 100%;
+      background-position: center;
     }//.site-banner
 
     h1 {

@@ -201,6 +201,9 @@ INSTALLED_APPS = (
 
 )
 
+TEXT_ADDITIONAL_TAGS = ('meta', 'small',)
+TEXT_ADDITIONAL_ATTRIBUTES = ('itemprop', 'itemscope', 'itemtype', 'content', 'title', 'datetime', )
+
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 DJANGO_WYSIWYG_FLAVOR = 'yui_advanced'
 FLUENT_BLOGS_BASE_TEMPLATE = 'journal.html'
