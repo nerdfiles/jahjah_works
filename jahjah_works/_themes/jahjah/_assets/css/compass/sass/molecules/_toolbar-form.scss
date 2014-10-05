@@ -1,0 +1,7 @@
+// @type molecule
+@mixin toolbar-form() {
+  @include atoms((
+    field-block,
+    clearfix
+  ))
+}

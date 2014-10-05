@@ -1,0 +1,11 @@
+// Defining a logical atom of a form, which may have optional parts, where 
+// parts themselves may have subtypes.
+@include define-atom("field-block") {
+  label {
+    background: pink;
+  }
+
+  input {
+    outline: 1px solid gold;
+  }
+}

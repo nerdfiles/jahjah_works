@@ -1,5 +1,7 @@
-#require 'zurb-foundation'
+#require 'foundation'
 add_import_path "../../vendor/foundation/scss"
+add_import_path "../../vendor/organic-css/src"
+add_import_path "../../vendor/organic-css/src/molecules"
 
 http_path = "/"
 css_dir = "stylesheets"
