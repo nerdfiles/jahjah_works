@@ -4415,6 +4415,9 @@ body.base-template .site-page:before, body.base-template .site-page:after {
 body.base-template .site-page:after {
   clear: both;
 }
+body.base-template .site-page article.inner {
+  padding: 0 1em;
+}
 @media only screen and (min-width: 64.063em) {
   body.base-template .site-page article.inner {
     padding-left: 0.9375rem;
@@ -4445,6 +4448,9 @@ body.base-template .site-footer:after {
     width: 33.33333%;
     float: left;
   }
+}
+body.base-template span[itemprop="alternateName"] {
+  display: none;
 }
 
 @media only screen and (min-width: 64.063em) {
