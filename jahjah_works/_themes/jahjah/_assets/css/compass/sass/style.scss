@@ -75,6 +75,10 @@ $align-block-grid-to-grid: false;
 @import "responses/tablet";
 @import "responses/widescreen";
 
+// Responses :: Parts
+
+@import "responses/youtube";
+
 // Templates
 
 @import "templates/_base";
