@@ -14,6 +14,9 @@
 }
 .gallery > li {
   padding: 0 0 1.25em !important;
+  a {
+    @include page-link();
+  }
 }
 .gallery figure {
 }
@@ -47,6 +50,7 @@ ul.gallery {
       max-width: 100%;
       padding-bottom: 30px;
       border-bottom: 1px #ccc solid;
+      margin-bottom: .5em;
     }
     h2 {
       text: {
@@ -54,8 +58,9 @@ ul.gallery {
         transform: uppercase;
       }
       font: {
-        size: 16px;
+        size: 20px;
         variant: small-caps;
+        family: $headerFontFamily;
       }
     }
     p {
