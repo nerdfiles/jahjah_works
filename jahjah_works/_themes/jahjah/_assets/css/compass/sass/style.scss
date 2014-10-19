@@ -4,6 +4,8 @@
 /*@import "foundation/functions/all";*/
 @import "foundation/_settings";
 
+/*@import "./fonts/amatic-sc";*/
+
 // Motherfucker==Redeemer
 
 /*$block-grid-media-queries: true;*/
@@ -76,6 +78,7 @@ $align-block-grid-to-grid: false;
 // Templates
 
 @import "templates/_base";
+@import "templates/_journal";
 
 // Pages
 
