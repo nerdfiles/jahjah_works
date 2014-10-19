@@ -1,0 +1,42 @@
+body.page--Journal {
+  .site-page {
+    article.inner {
+      @media #{$large} {
+        @include grid-column($columns:12);
+      }
+    }//article.inner
+  }
+}
+.site-page {
+
+}
+.blog-entry {
+
+  a {
+    @include page-link();
+  }
+
+  .entry-header {
+    h2 {
+      font-family: $headerFontFamily;
+    }
+  }
+
+  .entry-info {
+    color: #fff;
+    .published {
+      color: #983292;
+    }
+    .categories {}
+      .category {}
+  }
+
+  .entry-body {}
+    .text {
+      font-family: $bodyFontFamily;
+    }
+  .entry-footer {}
+    .entry-meta {}
+
+}
+
