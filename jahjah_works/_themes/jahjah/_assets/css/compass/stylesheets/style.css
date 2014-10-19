@@ -4224,6 +4224,24 @@ a:active {
 /**
  * Adaptations for Widescreens
  */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /**
  * CSS3 Image Filter Tools
  */
@@ -4397,6 +4415,9 @@ body.base-template .site-page:before, body.base-template .site-page:after {
 body.base-template .site-page:after {
   clear: both;
 }
+body.base-template .site-page article.inner {
+  padding: 0 1em;
+}
 @media only screen and (min-width: 64.063em) {
   body.base-template .site-page article.inner {
     padding-left: 0.9375rem;
@@ -4427,6 +4448,9 @@ body.base-template .site-footer:after {
     width: 33.33333%;
     float: left;
   }
+}
+body.base-template span[itemprop="alternateName"] {
+  display: none;
 }
 
 @media only screen and (min-width: 64.063em) {
