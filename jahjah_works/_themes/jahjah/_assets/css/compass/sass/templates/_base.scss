@@ -65,7 +65,7 @@ body.base-template {
     padding: 40px 0 0;
     div {
       @media #{$large} {
-        @include grid-column($columns:12, $center: true);
+        @include grid-column($columns:10, $push: 1, $center: true, $collapse: true);
       }
       ul {
         /*@include cf;*/
@@ -76,6 +76,7 @@ body.base-template {
             @include grid-column($columns:2);
           }
           a {
+            @include page-link();
             display: block;
             text-align: center;
             font-variant: small-caps;
