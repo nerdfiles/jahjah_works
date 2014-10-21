@@ -1,96 +1,87 @@
+
 /**
- * @fileOverview
- * global JS file for the Website.
+@fileOverview
+global JS file for the Website.
  */
-;(function ($, w, undefined) {
 
-  //// DOM Interaction Namespace ////
-
-  var interactionModel = {
+(function() {
+  (function($, w) {
 
     /**
-     * Intensify
-     * @memberof interactionModel
+    Intensify
+    @memberof interactionModel
      */
-    intensify: function () {
-      /**
-       * Preview of Gallery Item
-       *
-       * @description
-       *
-       * Image previews which trigger "zoom" events and "purchase".
-       */
-      $('.preview').each(intensifyGalleryItem);
-    },
 
     /**
-     * Foundation
-     *
-     * @using offcanvas
+    Preview of Gallery Item
+    
+    @description
+    
+    Image previews which trigger "zoom" events and "purchase".
      */
-    foundation: function () {
-      $(document).foundation();
-    },
 
     /**
-     * Initialization of DOM handlings
-     * @memberof interactionModel
+    Foundation
+    
+    @using offcanvas
      */
-    init: function () {
-      this.foundation();
-      this.intensify();
-    }
-  };
 
-  //// Internal/Implementation Functions ////
+    /**
+    Initialization of DOM handlings
+    @memberof interactionModel
+     */
 
-  /**
-   * Deferred Intense Images Container
-   *
-   * @inner
-   */
-  function deferredIntenseImagesContainer (selector) {
-    var
-    d = new $.Deferred();
+    /**
+    Deferred Intense Images Container
+    
+    @inner
+     */
+    var deferredIntenseImagesContainer, intensifyGalleryItem, interactionModel;
+    deferredIntenseImagesContainer = function(selector) {
+      var d, elementSearch;
+      d = new $.Deferred();
+      elementSearch = w.setInterval(function() {
+        var figure$;
+        figure$ = $(selector);
+        if (figure$.length) {
+          d.resolve(figure$);
+          return w.clearInterval(elementSearch);
+        }
+      }, 1000);
+      return d.promise();
+    };
 
-    var elementSearch = w.setInterval(function () {
-      var figure$ = $(selector);
-      if (figure$.length) {
-        d.resolve(figure$);
-        w.clearInterval(elementSearch);
-      }
-    }, 1000);
-
-    return d.promise();
-  }
-
-  /**
-   * Intensify Gallery Item
-   *
-   * @inner
-   */
-  function intensifyGalleryItem () {
-    var
-    preview$ = $(this);
-
-    preview$.on('click', function (e) {
-
-      var
-      img$ = $(e.target),
-      miniChargeContainer$ = img$.prev(),
-      miniChargeContainerClone$ = miniChargeContainer$.clone();
-
-      // Wait for Intense Image container to be injected at the tail of <body>
-      // in the DOM.
-      deferredIntenseImagesContainer('.intense-images--container').done(function (element$) {
-        miniChargeContainerClone$.appendTo(element$);
+    /**
+    Intensify Gallery Item
+    
+    @inner
+     */
+    intensifyGalleryItem = function() {
+      var preview$;
+      preview$ = $(this);
+      return preview$.on("click.previewIntenseImage", function(e) {
+        var img$, miniChargeContainer$, miniChargeContainerClone$;
+        img$ = $(e.target);
+        miniChargeContainer$ = img$.prev();
+        miniChargeContainerClone$ = miniChargeContainer$.clone();
+        return deferredIntenseImagesContainer(".intense-images--container").done(function(element$) {
+          return miniChargeContainerClone$.appendTo(element$);
+        });
       });
+    };
+    interactionModel = {
+      intensify: function() {
+        return $(".preview").each(intensifyGalleryItem);
+      },
+      foundation: function() {
+        return $(document).foundation();
+      },
+      init: function() {
+        this.foundation();
+        return this.intensify();
+      }
+    };
+    return interactionModel.init();
+  })(jQuery, window);
 
-    });
-  }
-
-  // init
-  interactionModel.init();
-
-})(jQuery, window);
-
+}).call(this);
