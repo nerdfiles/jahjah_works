@@ -81,6 +81,13 @@ module.exports = function (grunt) {
                 'jshint:gruntfile', 'shell:jangyCollectStatic'
               ]
             },
+            src_coffee: {
+              files: 'jahjah_works/_themes/jahjah/_assets/js/**/*.coffee',
+              tasks: [
+                'coffee:compileDev',
+                'shell:jangyCollectStatic'
+              ]
+            },
             /*
              *lib_scss: {
              *  files: '<%= compass.srcDir %>',
@@ -131,6 +138,35 @@ module.exports = function (grunt) {
             }
         },
 
+        coffee: {
+          compileDev: {
+            options: {
+              /*
+               *sourceMaps: false,
+               *sourceMapDir: ""
+               */
+            },
+            files: {
+              "jahjah_works/_themes/jahjah/_assets/js/global.js": [
+                "jahjah_works/_themes/jahjah/_assets/js/**/*.coffee"
+              ]
+            }
+          },
+          compileProd: {
+            options: {
+              /*
+               *sourceMaps: false,
+               *sourceMapDir: ""
+               */
+            },
+            files: {
+              "jahjah_works/_themes/jahjah/_assets/js/global.js": [
+                "jahjah_works/_themes/jahjah/_assets/js/**/*.coffee"
+              ]
+            }
+          }
+        },
+
         compass: {
           srcDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/sass',
           dist: {
@@ -157,6 +193,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-shell-spawn');
     grunt.loadNpmTasks('grunt-exit');
 
