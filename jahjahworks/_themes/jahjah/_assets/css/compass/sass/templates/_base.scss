@@ -1,0 +1,124 @@
+// @fileOverview
+// Django Templates.
+
+@import "compass/css3";
+@import "_utils";
+
+/**
+ * Base Template
+ *
+ * @tmpl        base.tmpl  
+ * @notes       Consider "_base.scss"
+ */
+body.base-template {
+  font: {
+    family: $bodyFontFamily;
+  }
+  .site-banner { 
+
+    @include grid-row();
+
+    a {
+      display: block;
+      height: 179px;
+      @media #{$small} {
+        @include grid-column($columns:6, $center: true);
+      }
+      @media #{$medium} {
+        @include grid-column($columns:6, $center: true);
+      }
+      @media #{$large} {
+        @include grid-column($columns:6, $center: true);
+      }
+      text: {
+        indent: -9999px;
+      }
+      background: url('../../../img-ui/jahjah-logo.png') 0 0 no-repeat;
+      background-size: auto 50%;
+      background-position: center;
+    }//.site-banner
+
+    h1 {
+      @media #{$large} {
+        @include grid-column($columns:3, $center: true);
+      }
+    }
+
+    p {
+      @media #{$large} {
+        @include grid-column($columns:3, $center: true);
+      }
+    }
+
+    h1 { 
+      font: {
+        size: 40px;
+      }
+    }
+  }//.site-banner
+
+  .site-nav {
+    @include grid-row();
+    ul {
+      list-style: none;
+    }
+    padding: 40px 0 0;
+    div {
+      @media #{$large} {
+        @include grid-column($columns:10, $push: 1, $center: true, $collapse: true);
+      }
+      ul {
+        /*@include cf;*/
+        @include grid-row();
+        li {
+          
+          @media #{$large} {
+            @include grid-column($columns:2);
+          }
+          a {
+            @include page-link();
+            display: block;
+            text-align: center;
+            font-variant: small-caps;
+            text-transform: uppercase;
+            font: {
+              family: $bodyFontFamily;
+            }
+
+          }//a
+        }//li
+        .sibling { 
+        }//sibling
+        .selected { 
+        
+        }//selected
+      }
+    }
+  }
+
+  .site-page { 
+    @include grid-row();
+
+    padding: 50px 0 0;
+
+    article.inner {
+      @media #{$large} {
+        @include grid-column($columns:12);
+      }
+      padding: 0 1em;
+    }//article.inner
+  }//.site-page
+
+  .site-footer { 
+    @include grid-row();
+    section {
+      @media #{$large} {
+        @include grid-column($columns:4);
+      }
+    }
+  }//.site-footer
+
+  span[itemprop="alternateName"] {
+    display: none;
+  }
+}//body.base-template
