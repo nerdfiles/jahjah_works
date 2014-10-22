@@ -1,0 +1,78 @@
+@import "compass/css3";
+@import "_utils.scss";
+
+.gallery {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.gallery > li {
+  padding: 0 0 1.25em !important;
+  a {
+    @include page-link();
+  }
+}
+.gallery figure {
+}
+.gallery figcaption {
+}
+ul.gallery {
+  @media #{$large} {
+    @include block-grid(
+      $per-row    : 3,
+      $spacing    : $block-grid-default-spacing,
+      $base-style : false
+    );
+  }
+  padding: 0 0 1.5em;
+  & > li:nth-of-type(3n+1) {
+    /*
+     *padding-left: 0;
+     *padding-right: 0;
+     */
+    /*
+     *&:nth-of-type(3n+1) {
+     *  figure {
+     *    padding-left: 0 !important;
+     *  }
+     *}
+     */
+  }
+  figure {
+    margin: 0 1em 2em;
+    img {
+      max-width: 100%;
+      padding-bottom: 30px;
+      border-bottom: 1px #ccc solid;
+      margin-bottom: .5em;
+    }
+    h2 {
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      font: {
+        size: 20px;
+        variant: small-caps;
+        family: $headerFontFamily;
+      }
+    }
+    p {
+      margin: 15px 0 0;
+      text: {
+        align: right;
+        transform: lowercase;
+      }
+      font: {
+        size: 14px;
+        variant: small-caps;
+      }
+    }
+  }
+}

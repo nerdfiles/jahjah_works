@@ -1,0 +1,15 @@
+{% extends "page.tmpl" %}
+{% load placeholder_tags cms_tags payments_tags sekizai_tags %}
+
+{% block body_class %}{{ block.super }} page-profile-template{% endblock %}
+
+{% block site_page %}
+{% render_placeholder profilecontent %}
+{% endblock site_page %}
+
+{% block stripe_container %}
+<!--
+{% subscribe_form %}
+-->
+{% endblock %}
+
