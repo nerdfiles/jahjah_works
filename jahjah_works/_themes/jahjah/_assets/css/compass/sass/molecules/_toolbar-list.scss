@@ -1,8 +1,0 @@
-// @type molecule
-@mixin toolbar-list() {
-  @include atoms((
-    arthead,
-    listing,
-    clearfix
-  ));
-}
