@@ -24,9 +24,9 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                  'jahjah_works/_themes/jahjah/_assets/js/global.js'
+                  'jahjahworks/_themes/jahjah/_assets/js/global.js'
                 ],
-                dest: 'jahjah_works/_themes/jahjah/_assets/js/dist/jahjah_works.js'
+                dest: 'jahjahworks/_themes/jahjah/_assets/js/dist/jahjahworks.js'
             }
         },
 
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: '<%= concat.dist.dest %>',
-                dest: 'jahjah_works/_themes/jahjah/_assets/js/dist/jahjah_works.min.js'
+                dest: 'jahjahworks/_themes/jahjah/_assets/js/dist/jahjahworks.min.js'
             }
         },
 
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
             },
             lib_test: {
               src: [
-                'jahjah_works/_themes/jahjah/_assets/js/global.js'
+                'jahjahworks/_themes/jahjah/_assets/js/global.js'
                 //'test/**/*.js'
               ]
             }
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
               ]
             },
             src_coffee: {
-              files: 'jahjah_works/_themes/jahjah/_assets/js/**/*.coffee',
+              files: 'jahjahworks/_themes/jahjah/_assets/js/**/*.coffee',
               tasks: [
                 'coffee:compileDev',
                 'shell:jangyCollectStatic'
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
               files: '<%= jshint.lib_test.src %>',
               tasks: [
                 'jshint:lib_test',
-                'shell:jangyCollectStatic'
+                //'shell:jangyCollectStatic'
                 //'qunit'
               ]
             }
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
               options: {
                 async: true,
                 execOptions: {
-                  cwd: './jahjah_works/_themes/jahjah/_assets/css'
+                  cwd: './jahjahworks/_themes/jahjah/_assets/css'
                 }
               }
             },
@@ -147,8 +147,8 @@ module.exports = function (grunt) {
                */
             },
             files: {
-              "jahjah_works/_themes/jahjah/_assets/js/global.js": [
-                "jahjah_works/_themes/jahjah/_assets/js/**/*.coffee"
+              "jahjahworks/_themes/jahjah/_assets/js/global.js": [
+                "jahjahworks/_themes/jahjah/_assets/js/**/*.coffee"
               ]
             }
           },
@@ -160,20 +160,20 @@ module.exports = function (grunt) {
                */
             },
             files: {
-              "jahjah_works/_themes/jahjah/_assets/js/global.js": [
-                "jahjah_works/_themes/jahjah/_assets/js/**/*.coffee"
+              "jahjahworks/_themes/jahjah/_assets/js/global.js": [
+                "jahjahworks/_themes/jahjah/_assets/js/**/*.coffee"
               ]
             }
           }
         },
 
         compass: {
-          srcDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/sass',
+          srcDir: 'jahjahworks/_themes/jahjah/_assets/css/compass/sass',
           dist: {
             options: {
-              importPath: 'jahjah_works/_themes/jahjah/_assets/vendor/foundation/scss',
-              sassDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/sass',
-              cssDir: 'jahjah_works/_themes/jahjah/_assets/css/compass/stylesheets',
+              importPath: 'jahjahworks/_themes/jahjah/_assets/vendor/foundation/scss',
+              sassDir: 'jahjahworks/_themes/jahjah/_assets/css/compass/sass',
+              cssDir: 'jahjahworks/_themes/jahjah/_assets/css/compass/stylesheets',
               environment: 'production'
             }
           }
@@ -203,7 +203,7 @@ module.exports = function (grunt) {
       //'qunit',
       'concat',
       'uglify',
-      'shell:compassWatch',
+      //'shell:compassWatch',
       //'shell:jangyRun',
       'watch'
     ]);
