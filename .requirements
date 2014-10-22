@@ -5,6 +5,7 @@ Pillow==2.5.0
 South==1.0
 Twisted==14.0.0
 Werkzeug==0.8.3
+argparse==1.2.1
 basicauth==0.2
 beautifulsoup4==4.3.2
 defusedxml==0.4.1
@@ -26,6 +27,8 @@ django-generic-links==0.2.0
 django-google-analytics==1
 django-inline-ordering==1.0.2
 django-jsonfield==0.9.12
+django-keyedcache==1.5.1
+django-livesettings==1.4-14
 django-model-utils==2.0.3
 django-mptt==0.6.1
 django-nose==1.2
@@ -33,12 +36,13 @@ django-pingback==0.3
 django-polymorphic==0.5.6
 django-reversion==1.8.1
 django-sekizai==0.7
--e git+git@github.com:docc/django-share.git#egg=django_share
+-e git+git@github.com:docc/django-share.git@2588021b55b8b04ebdc7bd88afaa6c385aa0dd57#egg=django_share-master
 django-snippet==1.0.1
 django-social-auth==0.7.28
+django-social-share==0.2.1
 django-sortedm2m==0.8.0
 django-sqlcipher==0.1.1
--e git+git@github.com:eldarion/django-stripe-payments.git#egg=django_stripe_payments
+-e git+git@github.com:eldarion/django-stripe-payments.git@68ba2fb1873900a6abb9778de9ae31434f3e1b3e#egg=django_stripe_payments-origin/master
 django-tag-parser==1.1.0
 django-tagging==0.3.2
 django-template-analyzer==1.3
