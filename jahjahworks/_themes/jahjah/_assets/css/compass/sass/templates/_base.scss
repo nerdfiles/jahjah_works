@@ -14,6 +14,9 @@ body.base-template {
   font: {
     family: $bodyFontFamily;
   }
+  p {
+    margin: 0 0 .5em;
+  }
   .site-banner { 
 
     @include grid-row();

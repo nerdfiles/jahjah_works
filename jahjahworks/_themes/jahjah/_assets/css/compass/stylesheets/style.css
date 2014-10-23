@@ -4254,6 +4254,9 @@ a:active {
 body.base-template {
   font-family: "Antic", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
+body.base-template p {
+  margin: 0 0 .5em;
+}
 body.base-template .site-banner {
   width: 100%;
   margin-left: auto;
@@ -4473,6 +4476,10 @@ body.base-template span[itemprop="alternateName"] {
 }
 .blog-entry .text {
   font-family: "Antic", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding: .5em 0 1em;
+  border-bottom: 1px solid #E9E9E9;
+  margin-bottom: 1em;
 }
 
 .site-page {
@@ -4606,16 +4613,23 @@ ul.gallery figure p {
   width: 100%;
   display: block;
   padding: 5px;
+  border-top: 1px solid gold;
 }
 .intense-images--container figcaption h1,
 .intense-images--container figcaption h2 {
   color: #fff !important;
 }
 .intense-images--container figcaption h1 {
-  padding: .5em;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
 }
 .intense-images--container figcaption h2 {
-  padding: .5em;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  maxWidth: 500px;
+  margin-top: 5px;
 }
 
 /**

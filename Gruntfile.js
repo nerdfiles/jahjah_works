@@ -88,14 +88,13 @@ module.exports = function (grunt) {
                 'shell:jangyCollectStatic'
               ]
             },
-            /*
-             *lib_scss: {
-             *  files: '<%= compass.srcDir %>',
-             *  tasks: [
-             *    'shell:compassWatch'
-             *  ]
-             *},
-             */
+            lib_scss: {
+              files: '<%= compass.srcDir %>',
+              tasks: [
+                'shell:compassWatch',
+                'shell:jangyCollectStatic'
+              ]
+            },
             lib_test: {
               files: '<%= jshint.lib_test.src %>',
               tasks: [
@@ -203,7 +202,7 @@ module.exports = function (grunt) {
       //'qunit',
       'concat',
       'uglify',
-      //'shell:compassWatch',
+      'shell:compassWatch',
       //'shell:jangyRun',
       'watch'
     ]);

@@ -177,7 +177,11 @@ var Intense = (function() {
       var captionContainerProperties = {
         'position': 'fixed',
         'bottom': '0px',
-        'left': '0px',
+        'left': '0px'
+        /*
+         *'padding': '20px',
+         *'webkitFontSmoothing': 'antialiased'
+         */
       }
       var captionContainer = document.createElement( 'figcaption' );
       applyProperties( captionContainer, captionContainerProperties );
