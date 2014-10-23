@@ -31,13 +31,13 @@ var Intense = (function() {
 
     // Holds the animation frame id.
     var looper;
-  
+
     // Current position of scrolly element
     var lastPosition, currentPosition = 0;
-    
+
     var sourceDimensions, target;
     var targetDimensions = { w: 0, h: 0 };
-  
+
     var container;
     var containerDimensions = { w: 0, h:0 };
     var overflowArea = { x: 0, y: 0 };
@@ -71,7 +71,7 @@ var Intense = (function() {
 
     // Returns whether target a vertical or horizontal fit in the page.
     // As well as the right fitting width/height of the image.
-    function getFit( 
+    function getFit(
 
       source ) {
 
@@ -115,18 +115,18 @@ var Intense = (function() {
         }, false );
       }
     }
-  
-    function start() { 
+
+    function start() {
       loop();
     }
-   
+
     function stop() {
       cancelRequestAnimFrame( looper );
     }
 
     function loop() {
         looper = requestAnimFrame(loop);
-        positionTarget();      
+        positionTarget();
     }
 
     // Lock scroll on the document body.
@@ -162,6 +162,7 @@ var Intense = (function() {
         'opacity': '0'
       }
       container = document.createElement( 'figure' );
+      container.setAttribute( 'class', 'intense-images--container' )
       container.appendChild( target );
       applyProperties( container, containerProperties );
 
@@ -174,15 +175,9 @@ var Intense = (function() {
        *  Caption Container
        */
       var captionContainerProperties = {
-        'fontFamily': 'Georgia, Times, "Times New Roman", serif',
         'position': 'fixed',
         'bottom': '0px',
         'left': '0px',
-        'padding': '20px',
-        'color': '#fff',
-        'wordSpacing': '0.2px',
-        'webkitFontSmoothing': 'antialiased',
-        'textShadow': '-1px 0px 1px rgba(0,0,0,0.4)'
       }
       var captionContainer = document.createElement( 'figcaption' );
       applyProperties( captionContainer, captionContainerProperties );
@@ -192,13 +187,10 @@ var Intense = (function() {
        */
       if ( title ) {
         var captionTitleProperties = {
-          'margin': '0px',
-          'padding': '0px',
-          'fontWeight': 'normal',
-          'fontSize': '40px',
-          'letterSpacing': '0.5px',
-          'lineHeight': '35px',
-          'textAlign': 'left'
+          /*
+           *'margin': '0px',
+           *'padding': '0px'
+           */
         }
         var captionTitle = document.createElement( 'h1' );
         applyProperties( captionTitle, captionTitleProperties );
@@ -208,15 +200,11 @@ var Intense = (function() {
 
       if ( caption ) {
         var captionTextProperties = {
-          'margin': '0px',
-          'padding': '0px',
-          'fontWeight': 'normal',
-          'fontSize': '20px',
-          'letterSpacing': '0.1px',
-          'maxWidth': '500px',
-          'textAlign': 'left',
-          'background': 'none',
-          'marginTop': '5px'
+          /*
+           *'margin': '0px',
+           *'padding': '0px',
+           *'marginTop': '5px'
+           */
         }
         var captionText = document.createElement( 'h2' );
         applyProperties( captionText, captionTextProperties );
@@ -230,7 +218,7 @@ var Intense = (function() {
 
       mouse.xCurr = mouse.xDest = window.innerWidth / 2;
       mouse.yCurr = mouse.yDest = window.innerHeight / 2;
-      
+
       document.body.appendChild( container );
       setTimeout( function() {
         container.style[ 'opacity' ] = '1';
@@ -247,7 +235,7 @@ var Intense = (function() {
 
     function setDimensions() {
 
-      // Manually set height to stop bug where 
+      // Manually set height to stop bug where
       var imageDimensions = getFit( sourceDimensions );
       target.width = imageDimensions.w;
       target.height = imageDimensions.h;
@@ -264,7 +252,7 @@ var Intense = (function() {
       var imageSource = element.getAttribute( 'data-image') || element.src;
       var title = element.getAttribute( 'data-title');
       var caption = element.getAttribute( 'data-caption');
-      
+
       var img = new Image();
       img.onload = function() {
 
@@ -296,7 +284,7 @@ var Intense = (function() {
       window.removeEventListener(    'keyup',     onKeyUp,       false );
       target.removeEventListener(    'click',     removeViewer,  false )
     }
-  
+
     function onMouseMove( event ) {
 
       mouse.xDest = event.clientX;
@@ -316,9 +304,9 @@ var Intense = (function() {
       event.preventDefault();
       if ( event.keyCode === KEYCODE_ESC ) {
         removeViewer();
-      } 
+      }
     }
-  
+
     function positionTarget() {
 
       mouse.xCurr += ( mouse.xDest - mouse.xCurr ) * 0.05;
@@ -369,3 +357,4 @@ var Intense = (function() {
     });
 
 })();
+
