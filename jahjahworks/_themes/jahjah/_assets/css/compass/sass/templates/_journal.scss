@@ -58,8 +58,14 @@ body.page--Journal {
   }
 }
 #comments-form-wrapper {
+  border-top: 1px solid rgb(241, 241, 241);
+  padding-top: 2em;
   p {
-    label {}
+    label {
+      display: inline-block;
+      background: #CCC;
+      transform: rotate(7deg);
+    }
     input, textarea {
       border: none;
       box-shadow: none;

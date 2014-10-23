@@ -4490,6 +4490,15 @@ body.base-template span[itemprop="alternateName"] {
   color: #777;
 }
 
+#comments-form-wrapper {
+  border-top: 1px solid #f1f1f1;
+  padding-top: 2em;
+}
+#comments-form-wrapper p label {
+  display: inline-block;
+  background: #CCC;
+  transform: rotate(7deg);
+}
 #comments-form-wrapper p input, #comments-form-wrapper p textarea {
   border: none;
   box-shadow: none;
