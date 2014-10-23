@@ -44,3 +44,29 @@ body.page--Journal {
 
 }
 
+#comments-wrapper {
+  h3.has-comments-title {
+    font-family: $headerFontFamily;
+    margin-bottom: 1em;
+  }
+  dl#comments {
+    dt {
+      color: #777;
+    }
+    dd {}
+    p {}
+  }
+}
+#comments-form-wrapper {
+  p {
+    label {}
+    input, textarea {
+      border: none;
+      box-shadow: none;
+      border-bottom: 2px #222 solid;
+    }
+  }
+  p.submit {}
+  input.submit-post {}
+  input.submit-preview {}
+}

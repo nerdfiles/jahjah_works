@@ -4482,6 +4482,20 @@ body.base-template span[itemprop="alternateName"] {
   margin-bottom: 1em;
 }
 
+#comments-wrapper h3.has-comments-title {
+  font-family: "Antic", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  margin-bottom: 1em;
+}
+#comments-wrapper dl#comments dt {
+  color: #777;
+}
+
+#comments-form-wrapper p input, #comments-form-wrapper p textarea {
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px #222 solid;
+}
+
 .site-page {
   color: #222;
 }
