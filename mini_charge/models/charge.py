@@ -6,6 +6,7 @@ from cms.models import CMSPlugin
 from django.conf import settings
 
 from mini_charge.models.image import MiniChargeImage
+from livesettings import config_value
 
 
 class Charge(models.Model):
@@ -18,7 +19,12 @@ class Charge(models.Model):
     def __init__(self, *args, **kwargs):
         super(Charge, self).__init__(*args, **kwargs)
         import stripe
-        stripe.api_key = settings.STRIPE_PUBLIC_KEY
+        DEBUG = settings.DEBUG
+        STRIPE_TEST_MODE = config_value('jahjahworks', 'STRIPE_TEST_MODE')
+        if DEBUG == True or STRIPE_TEST_MODE == True:
+            stripe.api_key = config_value('jahjahworks', 'STRIPE_TEST_PUBLIC_KEY')
+        else:
+            stripe.api_key = config_value('jahjahworks', 'STRIPE_LIVE_PUBLIC_KEY')
         self.stripe = stripe
 
     name = models.CharField(max_length=50)
