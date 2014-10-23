@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
 try:
-    from .wsgi_local import *
+    from .wsgi_production import *
 except ImportError:
     pass

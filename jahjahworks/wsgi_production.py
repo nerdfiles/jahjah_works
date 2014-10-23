@@ -11,8 +11,7 @@ from django.core.handlers.wsgi import WSGIHandler
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'jahjahworks.settings'
 
-activate_this = os.path.expanduser(
-    "~/.virtualenvs/jahjah_works/bin/activate_this.py")
+activate_this = os.path.expanduser("~/.virtualenvs/jahjah_works/bin/activate_this.py")
 execfile(activate_this, dict(__file__=activate_this))
 
 project = '/home/nerdfiles/webapps/jahjah_works/jahjah_works/'

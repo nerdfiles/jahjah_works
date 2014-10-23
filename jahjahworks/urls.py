@@ -27,6 +27,7 @@ urlpatterns = patterns(
     url(r'^dashboard/', include(admin.site.urls)),
     url(r'^dashboard/guides/(?P<path>.*)', 'django.views.static.serve',
         {'document_root': settings.SPHINX_ROOT, 'show_indexes': True}),
+    url(r'^settings/', include('livesettings.urls')),
     url(r'', include('social_auth.urls')),
     (r'^share/', include('share.urls')),
     url(r'^', include('cms.urls')),
