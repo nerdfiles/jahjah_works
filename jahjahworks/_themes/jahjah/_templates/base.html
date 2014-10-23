@@ -122,6 +122,12 @@
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
+  <script>
+  if (window.location.hostname.indexOf('local') === -1 && window.location.protocol !== "https:") {
+      window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+  }
+  </script>
+
 </head>
 
 <body class="site-jahjah_works {% block body_class %}base-template page--{% page_attribute "page_title"%} {% endblock %}">
