@@ -1,9 +1,0 @@
-@mixin big-title {
-	@include atoms((
-		font-size-80,
-		center-text,
-		normal,
-		margin-bottom-30,
-		line-height-80
-	));
-}

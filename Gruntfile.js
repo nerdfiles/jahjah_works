@@ -100,7 +100,7 @@ module.exports = function (grunt) {
               files: '<%= jshint.lib_test.src %>',
               tasks: [
                 'jshint:lib_test',
-                //'shell:jangyCollectStatic'
+                'shell:jangyCollectStatic'
                 //'qunit'
               ]
             }
@@ -203,7 +203,7 @@ module.exports = function (grunt) {
       //'qunit',
       'concat',
       'uglify',
-      //'shell:compassWatch',
+      'shell:compassWatch',
       //'shell:jangyRun',
       'watch'
     ]);
