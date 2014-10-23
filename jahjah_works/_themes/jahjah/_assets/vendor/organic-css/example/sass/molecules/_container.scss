@@ -1,9 +1,0 @@
-.container {
-	@include atoms((
-		block,
-		margin-centered,
-		padding-reset
-	)) {
-		max-width: 960px;
-	}
-}
