@@ -39,6 +39,10 @@
 }
 .intense-images--container .mini-charge button {
   background: transparent;
+  color: #111;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 2em;
 }
 
 /**
@@ -49,7 +53,6 @@
   width: 100%;
   display: block;
   padding: 5px;
-  border-top: 1px solid gold;
 }
 .intense-images--container figcaption h1,
 .intense-images--container figcaption h2 {
