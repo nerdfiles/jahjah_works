@@ -232,6 +232,7 @@ except ImportError:
     0g/Fji8cKD1/rtrrp1VVKwPEvjMRMpZnCmbwAi4C
 '''
 
+'''
 DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
 #DEFAULT_S3_PATH = "media"
 DEFAULT_S3_PATH = "_assets"
@@ -246,6 +247,7 @@ MEDIA_URL = '//s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 STATIC_ROOT = "/%s/" % STATIC_S3_PATH
 STATIC_URL = '//s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+'''
 
 #AWS_STORAGE_BUCKET_NAME = "E3MD4Y1JW0KRHF"
 #CLOUDFRONT_DOMAIN = "d3079wnhw42lg4.cloudfront.net"
