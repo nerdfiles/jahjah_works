@@ -1,4 +1,4 @@
- /*! jahjah_works - v0.0.0 - 2014-10-25
+ /*! jahjah_works - v0.0.0 - 2014-12-01
  * https://github.com/nerdfiles/jahjah_works
  * Copyright (c) 2014 ; Licensed WTFPL */
 (function() {
