@@ -72,7 +72,7 @@ TEMPLATE_DIRS = (
 
 STATICFILES_DIRS = (
     #os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets'),
-    '/home/nerdfiles/webapps/jahjah_works/jahjah_works/jahjahworks/_themes/jahjah/',
+    '/home/nerdfiles/webapps/jahjah_works/jahjah_works/jahjahworks/_themes/jahjah/_assets',
 )
 
 STATICFILES_FINDERS = (
