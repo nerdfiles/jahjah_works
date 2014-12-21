@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
+    'sslserver',
     'livesettings',
 
     'imagestore',
@@ -192,6 +193,9 @@ INSTALLED_APPS = (
     'sekizai',
     'django_extensions',
 
+    'storages',
+    's3_folder_storage',
+
     'sorl.thumbnail',
     'tagging',
     'mini_charge',
@@ -212,6 +216,53 @@ INSTALLED_APPS = (
 
 )
 
+try:
+    from keys import *
+except ImportError:
+    pass
+
+#DEFAULT_FILE_STORAGE = 'storage.MediaFilesStorage'
+#DEFAULT_S3_PATH = "media"
+#STATICFILES_STORAGE = 'storage.StaticFilesStorage'
+#STATIC_S3_PATH = "static"
+
+# d3079wnhw42lg4
+# E3MD4Y1JW0KRHF
+# d3079wnhw42lg4.cloudfront.net
+
+'''
+    Access Key ID:
+    AKIAJ5KGKDIZBBQN6MEQ
+    Secret Access Key:
+    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
+'''
+
+DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+#DEFAULT_S3_PATH = "media"
+DEFAULT_S3_PATH = "_assets"
+STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+STATIC_S3_PATH = "static"
+AWS_ACCESS_KEY_ID = 'AKIAJ5KGKDIZBBQN6MEQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'e3md4y1jw0krhf'
+
+MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
+MEDIA_URL = '//s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+STATIC_ROOT = "/%s/" % STATIC_S3_PATH
+STATIC_URL = '//s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+#AWS_STORAGE_BUCKET_NAME = "E3MD4Y1JW0KRHF"
+#CLOUDFRONT_DOMAIN = "d3079wnhw42lg4.cloudfront.net"
+#MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
+#MEDIA_URL = '//%s/%s/' % (CLOUDFRONT_DOMAIN, DEFAULT_S3_PATH)
+#STATIC_ROOT = "/%s/" % STATIC_S3_PATH
+#STATIC_URL = '//%s/%s/' % (CLOUDFRONT_DOMAIN, STATIC_S3_PATH)
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#AWS_ACCESS_KEY_ID = "AKIAJ5KGKDIZBBQN6MEQ"
+#AWS_SECRET_ACCESS_KEY = "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"
+
+
 AUTH_PROFILE_MODULE = 'jahjahworks.UserProfile'
 
 TEXT_ADDITIONAL_TAGS = ('meta', 'small',)
@@ -224,11 +275,6 @@ FLUENT_BLOGS_BASE_TEMPLATE = 'journal.html'
 LOGIN_URL = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
 LOGIN_ERROR_URL = '/login-error/'
-
-try:
-    from keys import *
-except ImportError:
-    pass
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',

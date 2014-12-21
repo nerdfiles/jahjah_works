@@ -67,9 +67,12 @@ body.base-template {
     }
     padding: 40px 0 0;
     div {
-      @media #{$large} {
-        @include grid-column($columns:10, $push: 1, $center: true, $collapse: true);
-      }
+      padding-bottom: 1rem;
+      /*
+       *@media #{$large} {
+       *  @include grid-column($columns:10, $push: 1, $center: true, $collapse: true);
+       *}
+       */
       ul {
         /*@include cf;*/
         @include grid-row();
