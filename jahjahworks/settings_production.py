@@ -61,7 +61,9 @@ THEME = 'jahjah'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets')
 MEDIA_URL = '/_assets/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = '/home/nerdfiles/webapps/jahjah_works_static/' 
+#STATIC_URL = '/static/'
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
@@ -69,12 +71,14 @@ TEMPLATE_DIRS = (
 )
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets'),
+    #os.path.join(PROJECT_ROOT, '_themes', THEME, '_assets'),
+    '/home/nerdfiles/webapps/jahjah_works/jahjah_works/jahjahworks/_themes/jahjah/',
 )
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
@@ -82,6 +86,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 

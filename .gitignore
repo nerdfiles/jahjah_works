@@ -1,4 +1,6 @@
 settings.py
+cache
+imagestore
 *.pyc
 *.swo
 *.swp
