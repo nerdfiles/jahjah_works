@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
 from django.template.context import RequestContext
+from django.views.decorators.http import require_http_methods
 from django.shortcuts import render_to_response, redirect
 from django.conf import settings
 from mini_charge import forms
+import json
 #from decimal import *
 
 import requests
@@ -43,7 +47,9 @@ def mail_by_charge():
               "subject": "Hello",
               "text": "Testing some Mailgun awesomness!"})
 
-def charge(request):
+@require_http_methods(["POST", ])
+@csrf_exempt
+def webhook_test(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     token = request.POST['stripe_token']
     amount = request.POST['amount']
@@ -52,13 +58,31 @@ def charge(request):
     currency = request.POST['currency']
     description = request.POST['description']
     try:
-        mail_by_charge()
+        redirect('http://http://local.jahjah.works:8009/61')
+    except stripe.CardError as e:
+        pass
+    return redirect('https://google.com')
+
+@require_http_methods(["POST", ])
+@csrf_exempt
+def charge(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    token = request.POST['stripe_token']
+    amount = request.POST['amount']
+    amount = amount.encode('ascii', 'ignore')
+    amount = float(amount)
+    currency = request.POST['currency']
+    description = request.POST['description']
+
+    try:
+        #mail_by_charge()
         charge = stripe.Charge.create(
             amount=int(amount * 100),
             currency=currency.lower(),
             card=token,
             description=description
         )
+        #event_json = json.load(request.body)
     except stripe.CardError as e:
         pass
 
