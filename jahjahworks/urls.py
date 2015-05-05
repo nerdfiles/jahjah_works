@@ -29,7 +29,7 @@ urlpatterns += patterns(
     url(r'^payments/', include('payments.urls')),
     url(r'^settings/', include('livesettings.urls')),
 
-    url(r'^journal/comments/', include('django.contrib.comments.urls')),
+    url(r'^journal/comments/', include('django_comments.urls')),
     url(r'^journal/', include('fluent_blogs.urls')),
 
     #url(r'^gallery/', include('imagestore.urls', namespace='imagestore')),

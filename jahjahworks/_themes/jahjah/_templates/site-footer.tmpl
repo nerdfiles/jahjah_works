@@ -1,20 +1,28 @@
-{% load generic_links_tags %}
+{% load cms_tags %}
 
 <footer class="site-footer">
+
   <section>
-    <h1>About</h1>
-    <ul>
-      <li></li>
-    </ul>
+    {% placeholder "site_footer" %}
   </section>
-  <section>
+
+  <!--
+     -<section>
+     -  <h1>About</h1>
+     -  <ul>
+     -    <li></li>
+     -  </ul>
+     -</section>
+     -->
+
+  <!--section>
     <h1>{{ base_links.name }}</h1>
     <p>{{ base_links.description }}</p>
 
-    {% get_links_for base_links as generic_links %}
+    {# get_links_for base_links as generic_links #}
 
     <ul>
-    {% for link in generic_links %}
+    {# for link in generic_links #}
       <li>
         <a
           href="{{ link.url }}"
@@ -23,13 +31,20 @@
           {{ link.title }}
         </a>
       </li>
-    {% endfor %}
+    {# endfor #}
     </ul>
-  </section>
-  <section>
-    <h1></h1>
-    <ul>
-      <li></li>
-    </ul>
-  </section>
+  </section-->
+
+  <!--
+     -<section>
+     -  <h1></h1>
+     -  <ul>
+     -    <li>
+     -    
+     -    </li>
+     -  </ul>
+     -</section>
+     -->
+
 </footer><!-- End .site-footer -->
+

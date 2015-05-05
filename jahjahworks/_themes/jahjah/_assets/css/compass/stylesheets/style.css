@@ -1057,6 +1057,7 @@ ul.gallery figure p {
   display: block;
   padding: 5px;
   background-color: #222;
+  opacity: .8;
 }
 .intense-images--container figcaption h1,
 .intense-images--container figcaption h2 {

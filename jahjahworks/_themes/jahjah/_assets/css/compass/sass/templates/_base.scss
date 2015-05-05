@@ -77,7 +77,6 @@ body.base-template {
         /*@include cf;*/
         @include grid-row();
         li {
-          
           @media #{$large} {
             @include grid-column($columns:2);
           }

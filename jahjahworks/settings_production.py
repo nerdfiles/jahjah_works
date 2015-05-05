@@ -86,34 +86,27 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
+    #'django.template.loaders.eggs.Loader',
 )
 
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
-    #'django.middleware.common.CommonMiddleware',
-    #'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
-    #'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'django.contrib.messages.middleware.MessageMiddleware',
-
-    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.doc.XViewMiddleware',
-    'django.middleware.common.CommonMiddleware',
-
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
+    #'django.middleware.doc.XViewMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -128,10 +121,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'jahjahworks.context_processors.date_formats',
     'jahjahworks.context_processors.site_info',
     #'jahjah.context_processors.generic_links',
-    'social_auth.context_processors.social_auth_by_name_backends',
-    'social_auth.context_processors.social_auth_backends',
-    'social_auth.context_processors.social_auth_by_type_backends',
-    'social_auth.context_processors.social_auth_login_redirect',
+    #'social_auth.context_processors.social_auth_by_name_backends',
+    #'social_auth.context_processors.social_auth_backends',
+    #'social_auth.context_processors.social_auth_by_type_backends',
+    #'social_auth.context_processors.social_auth_login_redirect',
 )
 
 ROOT_URLCONF = 'jahjahworks.urls'
@@ -145,21 +138,25 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.admindocs',
 
+    'django_comments',
+    #'django.contrib.comments',
     'sslserver',
     'livesettings',
 
-    'imagestore',
-    'imagestore.imagestore_cms',
-
+    #'imagestore.imagestore_cms',
+    'categories',
+    'categories.editor',
     # other
-    'social_auth',
-    'share',
-    'django_social_share',
-
+    #'social_auth',
+    #'share',
+    #'django_social_share',
+    'cms',
+    'menus',
+    'mptt',
+    'treebeard',
     # Blog engine
     'fluent_blogs',
 
@@ -168,25 +165,21 @@ INSTALLED_APPS = (
     'fluent_contents.plugins.text',
 
     # Support libs
-    'categories',
-    'categories.editor',
+
     'django_wysiwyg',
 
     # Optional commenting support
-    'django.contrib.comments',
 
-    'debug_toolbar',
     'payments',
     'django_forms_bootstrap',
     'django_evolution',
-    'menus',
-    'mptt',
-    'south',
+
+    'djangocms_admin_style',
+    #'south',
     'djangocms_text_ckeditor',
-    'cms',
     'djangocms_picture',
-    'djangocms_link',
-    'djangocms_file',
+    #'djangocms_link',
+    #'djangocms_file',
     'djangocms_snippet', #potential security hazard @see http://docs.django-cms.org/en/latest/getting_started/installation/integrate.html
     'djangocms_googlemap',
     'djangocms_inherit',
@@ -196,9 +189,10 @@ INSTALLED_APPS = (
     'storages',
     's3_folder_storage',
 
+    'imagestore',
     'sorl.thumbnail',
     'tagging',
-    'mini_charge',
+    #'mini_charge',
     #'generic_links',
 
     #'filer',
@@ -212,7 +206,8 @@ INSTALLED_APPS = (
 
     'utils',
     'sqlcipher',
-    'jahjahworks'
+    'jahjahworks',
+    'debug_toolbar',
 
 )
 
@@ -265,25 +260,37 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 #AWS_SECRET_ACCESS_KEY = "0g/Fji8cKD1/rtrrp1VVKwPEvjMRMpZnCmbwAi4C"
 
 
-AUTH_PROFILE_MODULE = 'jahjahworks.UserProfile'
+#AUTH_PROFILE_MODULE = 'jahjahworks.UserProfile'
+AUTH_USER_MODEL = 'auth.User' 
 
 TEXT_ADDITIONAL_TAGS = ('meta', 'small',)
 TEXT_ADDITIONAL_ATTRIBUTES = ('itemprop', 'itemscope', 'itemtype', 'content', 'title', 'datetime', )
 
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-DJANGO_WYSIWYG_FLAVOR = 'yui_advanced'
+DJANGO_WYSIWYG_FLAVOR = 'ckeditor'
 FLUENT_BLOGS_BASE_TEMPLATE = 'journal.html'
 
 LOGIN_URL = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
 LOGIN_ERROR_URL = '/login-error/'
 
+MIGRATION_MODULES = {
+    'djangocms_picture': 'djangocms_picture.migrations_django',
+    'djangocms_snippet': 'djangocms_snippet.migrations_django',
+    'djangocms_inherit': 'djangocms_inherit.migrations_django',
+    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
+    'djangocms_file': 'djangocms_file.migrations_django',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
+    'djangocms_link': 'djangocms_link.migrations_django',
+}
+
+
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.google.GoogleOAuthBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.google.GoogleBackend',
+    #'social_auth.backends.twitter.TwitterBackend',
+    #'social_auth.backends.facebook.FacebookBackend',
+    #'social_auth.backends.google.GoogleOAuthBackend',
+    #'social_auth.backends.google.GoogleOAuth2Backend',
+    #'social_auth.backends.google.GoogleBackend',
     #'social_auth.backends.yahoo.YahooBackend',
     #'social_auth.backends.browserid.BrowserIDBackend',
     #'social_auth.backends.contrib.linkedin.LinkedinBackend',
@@ -304,7 +311,7 @@ AUTHENTICATION_BACKENDS = (
 
 
 IMAGESTORE_SHOW_USER = False
-IMAGESTORE_IMAGE_MODEL = 'mini_charge.models.MiniChargeImage'
+# IMAGESTORE_IMAGE_MODEL = 'mini_charge.models.MiniChargeImage'
 # IMAGESTORE_ALBUM_MODEL = 'mini_charge.models.MiniChargeAlbum'
 # IMAGESTORE_TEMPLATE = 'base.html'
 # IMAGESTORE_LOAD_CSS = True
